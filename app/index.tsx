@@ -23,8 +23,8 @@ export default function PreloadingVideoPlayerScreen() {
           <Text style={styles.header}>Ready to change the way you money></Text>
       </View>
 
-      <View>
-        
+      <View style>
+
       </View>
     </View>
   );
@@ -39,4 +39,13 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  header: {
+    fontSize: 36,
+    fontWeight:'900',
+    textTransform: 'uppercase',
+    color: 'white',
+  },
+  buttons: {
+    
+  }
 });
