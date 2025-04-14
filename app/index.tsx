@@ -15,10 +15,17 @@ export default function PreloadingVideoPlayerScreen() {
       <VideoView
         player={player}
         style={styles.video}
-        nativeControls={true}
+        nativeControls={false}
         allowsFullscreen
         contentFit="contain"
       />
+      <View style={{ marginTop:80, padding:20 }}>
+          <Text style={styles.header}>Ready to change the way you money></Text>
+      </View>
+
+      <View>
+        
+      </View>
     </View>
   );
 }
