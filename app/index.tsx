@@ -13,23 +13,25 @@ export default function PreloadingVideoPlayerScreen() {
 
     return (
         <View style={styles.container}>
+            {/* Video Background */}
             <VideoView
                 player={player}
                 style={styles.video}
                 nativeControls={false}
                 allowsFullscreen
-                contentFit="contain"
+                contentFit="cover"
             />
-            <View style={{ marginTop: 80, padding: 20 }}>
-                <Text style={styles.header}>Ready to change the way you manage money?</Text>
-            </View>
 
-            <View style={styles.buttons}>
-                <Link href={'./login'} asChild>
-                    <TouchableOpacity>
-                        <Text style={{ color: 'white' }}>Login</Text>
-                    </TouchableOpacity>
-                </Link>
+            {/* Overlay Content */}
+            <View style={styles.overlay}>
+                <Text style={styles.header}>Ready to change the way you manage money?</Text>
+                <View style={styles.buttons}>
+                    <Link href={'./login'} asChild>
+                        <TouchableOpacity style={styles.loginButton}>
+                            <Text style={styles.loginText}>Login</Text>
+                        </TouchableOpacity>
+                    </Link>
+                </View>
             </View>
         </View>
     );
@@ -41,20 +43,36 @@ const styles = StyleSheet.create({
         backgroundColor: '#000',
     },
     video: {
-        width: '100%',
-        height: '100%',
+        ...StyleSheet.absoluteFillObject, // covers full screen
+    },
+    overlay: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 20,
     },
     header: {
-        fontSize: 36,
+        fontSize: 32,
         fontWeight: '900',
         textTransform: 'uppercase',
         color: 'white',
+        textAlign: 'center',
+        marginBottom: 30,
     },
     buttons: {
         flexDirection: 'row',
         justifyContent: 'center',
         gap: 20,
-        marginBottom: 60,
-        paddingHorizontal: 20,
-    }
+    },
+    loginButton: {
+        backgroundColor: '#1E90FF',
+        paddingVertical: 12,
+        paddingHorizontal: 30,
+        borderRadius: 10,
+    },
+    loginText: {
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
 });
